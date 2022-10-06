@@ -43,6 +43,17 @@ class ProductSerializer(serializers.ModelSerializer):
         read_only_fields = ('stock_quantity',)
 
 
+class FirmSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Firm
+        fields = (
+            'id',
+            'name',
+            'phone',
+            'address'
+        )
+
+
 
 class TransactionSerializer(serializers.ModelSerializer):
     user=serializers.StringRelatedField()
@@ -67,7 +78,7 @@ class TransactionSerializer(serializers.ModelSerializer):
         )
         read_only_fields = ('price_total',)
 
-        def validate(self,data):
+    def validate(self,data):
             if data.get("transaction") ==0:
                 product=Product.objects.get(id=data.get( "product_id"))
                 if data.get("quantity") > product.stock_quantity:

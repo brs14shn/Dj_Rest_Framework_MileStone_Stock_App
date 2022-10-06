@@ -3,15 +3,18 @@ from rest_framework import routers
 from .views import (
    CategoryView,
    BrandView,
-   ProductView
+   ProductView,
+   TransactionView,
+   FirmView
+
 )
 
 router = routers.DefaultRouter()
 router.register("category",CategoryView)
 router.register("brand",BrandView)
 router.register("product",ProductView)
-# router.register("firm",FirmViewSet)
-# router.register("stock",StockViewSet)
+router.register("firm",FirmView)
+router.register("stock",TransactionView)
 
 
 urlpatterns =[
