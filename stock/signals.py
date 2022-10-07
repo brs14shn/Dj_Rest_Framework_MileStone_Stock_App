@@ -21,6 +21,7 @@ def calculate_total_price(sender, instance, **kwargs):
 #? Burada product içerisinde bulunan stock_quantity artırıp azaltmak için
 #? Transactionda gönderilen IN ve OUT işlemine göre  product modelinde stock_quantity
 #? güncellemek istiyoruz.
+
 @receiver(post_save, sender=Transaction)
 def update_stock(sender, instance, **kwargs):
     product=Product.objects.get(id=instance.product_id) # Hangi productı update edeceğimizi belirlememiz gerek!

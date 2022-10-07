@@ -44,15 +44,15 @@ class Firm(UpdateCreate):
 
 class Transaction(UpdateCreate):
    TRANSACTION_TYPE = (
-    ('1', 'IN'),
-    ('0', 'OUT')
+    (1, 'IN'),
+    (0, 'OUT')
     )
 
    user=models.ForeignKey(User, on_delete=models.SET_NULL,null=True) 
    #! null integer belirtmek gerekiyor db yoksa db hatası alırız.
    # set null kullanıyorsa null kullanılmak zorunda
    firm=models.ForeignKey(Firm, on_delete=models.SET_NULL,null=True,related_name="transactions")
-   transaction=models.CharField(max_length=1, choices=TRANSACTION_TYPE)
+   transaction=models.SmallIntegerField(choices=TRANSACTION_TYPE)
    product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name="transaction")
    quantity=models.PositiveIntegerField()
    price=models.DecimalField(max_digits=6, decimal_places=2)
