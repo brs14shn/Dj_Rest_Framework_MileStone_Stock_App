@@ -55,5 +55,5 @@ class TransactionView(viewsets.ModelViewSet):
     search_fields = ['firm']
 
     def perform_create(self, serializer):
-        pass
+       serializer.save(user=self.request.user)
 

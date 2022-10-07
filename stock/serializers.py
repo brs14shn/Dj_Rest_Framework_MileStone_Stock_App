@@ -49,7 +49,7 @@ class FirmSerializer(serializers.ModelSerializer):
         fields = (
             'id',
             'name',
-            'phone',
+            'phone_number',
             'address'
         )
 
@@ -72,7 +72,7 @@ class TransactionSerializer(serializers.ModelSerializer):
             "product",
             "product_id",
             "price_total",
-            "quantity"
+            "quantity",
             "price",
             "transaction"
         )
