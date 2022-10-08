@@ -43,7 +43,7 @@ class ProductSerializer(serializers.ModelSerializer):
         read_only_fields = ('stock_quantity',)
 
 class CategoryProductsSerializer(serializers.ModelSerializer):
-    products = ProductSerializer(many=True)
+    products = ProductSerializer(many=True) #! 👉 related_namede belirttiğimiz isim
 
     class Meta:
         model = Category
