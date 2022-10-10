@@ -921,6 +921,62 @@ from .permissions import CustomModelPermission
     permission_classes = [CustomModelPermission]
 ```
 
+## 🚩 USER ROLES
+
+- Manager:
+  - Authorized all CRUD operations in Stock App
+
+- Product_Manager:
+  - Authorized all CRUD Operations in Category, Firm ,Brand, Product Tables
+
+- Finance:
+  - Authorized all CRUD Operations in Stock Tables and read only other tables
+
+- ReadOnly:
+  - Authorized only read operations in all tables
+
+## 🚩 USER TOKENS ACCORDING TO ROLES:
+
+- Manager : 20b6910c359803bf421b53594ff5e3edc51f2a99
+- Product_Manager : b92065560b908189323e54e808ed125ec7bb92ad
+- Finance_Manager :9132cfbd4af4d5dc74cb77b4b9f2be3f7918ef82
+- Read_Only : f73305c7cef2b2ac4215f9def3fca23a63276449
+
+## 🚩 RELATIONSHIP WITH REACT
+
+INSTALL [CORS-HEADERS](https://pypi.org/project/django-cors-headers/)
+
+```
+python -m pip install django-cors-headers
+
+ALLOWED_HOSTS = ['*']
+
+
+INSTALLED_APPS = [
+    ...,
+    "corsheaders",
+    ...,
+]
+
+MIDDLEWARE = [
+     
+    # THIRD ROW FROM TOP
+    "corsheaders.middleware.CorsMiddleware",
+
+    ...,
+]
+
+
+# settings.py
+CORS_ORIGIN_ALLOW_ALL = True
+CORS_ALLOW_CREDENTIALS = True
+CORS_EXPOSE_HEADERS = (
+  'Access-Control-Allow-Origin: *',
+)
+
+```
+
+
 ## 📢 Do not forget to check the endpoints you wrote in [Postman](https://www.postman.com/).
 
 ## <center>🥳 END OF THE  PROJECT 🥳</center>
